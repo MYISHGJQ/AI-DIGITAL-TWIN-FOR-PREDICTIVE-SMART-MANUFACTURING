@@ -1,0 +1,95 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+/* Custom fonts & styles */
+body {
+  font-family: 'Inter', sans-serif;
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Animations */
+@keyframes pulse-slow {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.55; transform: scale(1.02); }
+}
+
+.animate-pulse-slow {
+  animation: pulse-slow 2.5s infinite ease-in-out;
+}
+
+@keyframes line-draw {
+  0% { stroke-dashoffset: 20; }
+  100% { stroke-dashoffset: 0; }
+}
+
+.animate-line-flow {
+  stroke-dasharray: 6, 4;
+  animation: line-draw 1.2s linear infinite;
+}
+
+@keyframes line-draw-reverse {
+  0% { stroke-dashoffset: 0; }
+  100% { stroke-dashoffset: 20; }
+}
+
+.animate-line-flow-reverse {
+  stroke-dasharray: 6, 4;
+  animation: line-draw-reverse 1.2s linear infinite;
+}
+
+/* Subtle conveyor data flow animation */
+@keyframes conveyor-dash {
+  to {
+    stroke-dashoffset: -24;
+  }
+}
+
+.animate-conveyor {
+  stroke-dasharray: 4, 8;
+  animation: conveyor-dash 2.5s linear infinite;
+}
+
+@keyframes conveyor-dash-reverse {
+  to {
+    stroke-dashoffset: 24;
+  }
+}
+
+.animate-conveyor-reverse {
+  stroke-dasharray: 4, 8;
+  animation: conveyor-dash-reverse 2.5s linear infinite;
+}
+
+/* Custom scrollbars for smooth SaaS layout */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #CBD5E1;
+  border-radius: 4px;
+}
+.dark ::-webkit-scrollbar-thumb {
+  background: #475569;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #94A3B8;
+}
+
+/* Glassmorphism helpers */
+.glass {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+.dark .glass {
+  background: rgba(30, 41, 59, 0.7);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
